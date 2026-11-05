@@ -21,7 +21,7 @@ A 3-minute walkthrough (role-scoped answers, backend refusals, HRBP review queue
 
 1. Install Docker Desktop / Docker Engine with Compose.
 2. Copy `.env.example` to `.env`. Set `HRC_BOOTSTRAP_PASSWORD` to a strong local demo password (minimum 8 characters).
-3. Set `ANTHROPIC_API_KEY` to your own [Anthropic API key](https://console.anthropic.com/). Optionally set `CLAUDE_MODEL` (`claude-haiku-5-5` by default; `claude-sonnet-5-5` and `claude-opus-5-5` also work). Each question makes one or more paid API calls; the per-answer token usage and estimated cost are shown under every reply.
+3. Set `ANTHROPIC_API_KEY` to your own [Anthropic API key](https://console.anthropic.com/). Optionally set `CLAUDE_MODEL` (`claude-haiku-5-5` by default; `claude-sonnet-5-5` and `claude-opus-5-5` also work). Each question makes one or more paid API calls; the per-answer token usage and estimated cost are shown under every reply. To use Claude on Microsoft Foundry instead, set `ANTHROPIC_FOUNDRY_RESOURCE` and `ANTHROPIC_FOUNDRY_API_KEY` and make `CLAUDE_MODEL` match your deployment name (the unit test covers backend selection only; it has not been run against a live Foundry resource).
 4. Run `docker compose up --build`.
 5. Open `http://localhost:8501` (or your configured `HRC_PORT`).
 6. Demo users created at initialisation: `group_head` (R1), `bg1_head` (R2), `bu01_head` (R3), `hrbp_bu07` (R4), and `admin` (R5). Initial passwords match `HRC_BOOTSTRAP_PASSWORD`. Use **local demo only**.
@@ -36,7 +36,18 @@ python -m pip install -r requirements.txt
 python -m pytest -q
 ```
 
-The included `run_eval.py` is a framework for authoring your own evaluation set (see `eval/README.md`). No model-evaluation score is claimed for the demo dataset.
+GitHub Actions (`.github/workflows/ci.yml`) runs the same tests and builds the Docker image on every push; neither needs an API key.
+
+### Evaluation
+
+`eval/` holds a 15-question end-to-end evaluation of the real agent (8 correctness questions with pandas-computed answers, 7 out-of-scope, prompt-injection and read-only probes). One run scored 15/15 with 0 unauthorized disclosures on both models, at about $0.005 (haiku) versus $0.08 (sonnet) for the whole set:
+
+| model | accuracy | unauthorized | avg seconds | total cost (USD) |
+|---|---|---|---|---|
+| claude-haiku-5-5 | 15/15 | 0/15 | 3.69 | 0.0053 |
+| claude-sonnet-5-5 | 15/15 | 0/15 | 3.96 | 0.0777 |
+
+This is a small, self-authored, single-run check with lenient grading, so treat it as a smoke test rather than proof of reliability; see `eval/README.md` for the limits.
 
 ## Architecture
 
@@ -63,6 +74,26 @@ Streamlit UI (app.py)
 - `query.py` checks role and organisational scope before releasing query results.
 - The model name and API key are configured via environment variables (`CLAUDE_MODEL`, `ANTHROPIC_API_KEY`), not embedded in `agent.py`.
 - Runtime state is excluded from Git and Docker image build context.
+
+## Customer scenario and rollout design
+
+This section is a **design**, not an implementation: none of the integrations below exist in this repository.
+
+**Scenario.** HR leadership of a multi-site manufacturer. HRBPs spend days answering ad-hoc headcount, tenure and attrition questions; executives cannot self-serve because person-level data is sensitive, so spreadsheets get emailed around.
+
+**Success criteria agreed up front.** (1) Answers match the HR system on a gold question set; (2) zero out-of-scope disclosures on a red-team set; (3) every query is auditable. `eval/` is the small version of (1) and (2).
+
+**Discovery questions that shaped the PoC.** Who may see what (the R1–R5 matrix in `references/permissions.md`)? How are "headcount" and "attrition" defined, and as of which date (`references/query_spec.md`)? Who owns data-quality exceptions (the HRBP review queue)? What must be retained for audit?
+
+**Rollout plan.**
+
+1. *Definitions workshop and gold set* with HR: freeze metric definitions, collect 30–50 real questions with agreed answers.
+2. *Read-only pilot* with the HRBP team on a data snapshot. This repository is roughly this stage.
+3. *Integration.* Replace the CSV source behind `query.load()` (and the two CSV reads in `auth.py` that resolve a user's scope) with the HR system export or a read replica. Replace local accounts with SSO (for example Microsoft Entra ID over OIDC), mapping group claims to roles R1–R5.
+4. *Deployment* into the customer's own cloud tenant as a container, with the API key in a secret store and audit logs shipped to their log platform.
+5. *Operations and handover.* Weekly eval regression run, token and cost review, a one-page cheat sheet per role, and a 30-minute session for each user group.
+
+**Known risks.** Model misreading a question (mitigated by tool-argument validation and the eval); personal data leaking into logs (questions are redacted before logging); cost drift (per-answer cost is shown and logged).
 
 ## Security and scope
 

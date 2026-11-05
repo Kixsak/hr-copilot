@@ -42,6 +42,25 @@ def test_api_error_is_reported_and_history_rolled_back(users):
     assert "暫時無法回答" in r["answer"] and c.messages == []
 
 
+def test_missing_api_key_is_reported_not_raised(users):
+    from agent import Conversation
+    err = TypeError('"Could not resolve authentication method. Expected one of api_key, auth_token, or credentials"')
+    c = Conversation(users["bg1"], client=FakeClient([err]))
+    r = c.ask("BU-X 有幾人？")
+    assert "暫時無法回答" in r["answer"] and "ANTHROPIC_API_KEY" in r["answer"] and c.messages == []
+
+
+def test_unrelated_type_error_is_not_swallowed(users, monkeypatch):
+    from agent import Conversation
+
+    def boom(*a, **k):
+        raise TypeError("bug in our code")
+    monkeypatch.setattr("agent.run_query", boom)
+    c = Conversation(users["bg1"], client=FakeClient([resp([tool({"metrics": ["count"]})], "tool_use")]))
+    with pytest.raises(TypeError):
+        c.ask("x")
+
+
 def test_truncated_answer_is_flagged(users):
     from agent import Conversation
     c = Conversation(users["bg1"], client=FakeClient([resp([text("部分內容")], "max_tokens")]))
@@ -71,6 +90,17 @@ def test_logged_question_is_redacted(users, env):
     Conversation(users["hr1x"], client=FakeClient([resp([text("ok")], "end_turn")])).ask("E000101 的生日 1995-05-05？")
     log = (env / "logs" / "llm_usage.jsonl").read_text(encoding="utf-8")
     assert "E000101" not in log and "1995-05-05" not in log and '"cost_is_estimate": true' in log
+
+
+def test_client_backend_defaults_to_anthropic_and_foundry_is_opt_in(monkeypatch):
+    import anthropic
+    import agent
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "test-key")
+    monkeypatch.delenv("ANTHROPIC_FOUNDRY_RESOURCE", raising=False)
+    assert type(agent._client()) is anthropic.Anthropic
+    monkeypatch.setenv("ANTHROPIC_FOUNDRY_RESOURCE", "demo-resource")
+    monkeypatch.setenv("ANTHROPIC_FOUNDRY_API_KEY", "test-key")
+    assert isinstance(agent._client(), anthropic.AnthropicFoundry)
 
 
 # ---------- 清理：只有 R5、兩方審核者、決定不會套到變動後的資料 ----------

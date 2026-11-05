@@ -7,6 +7,8 @@ services:
     environment:
       # 以下從主機 shell 傳入，不寫進檔案或映像
       - ANTHROPIC_API_KEY
+      - ANTHROPIC_FOUNDRY_RESOURCE      # 選配：改用 Microsoft Foundry
+      - ANTHROPIC_FOUNDRY_API_KEY
       - HRC_BOOTSTRAP_PASSWORD
       - CLAUDE_MODEL=${CLAUDE_MODEL:-claude-haiku-5-5}
     volumes:

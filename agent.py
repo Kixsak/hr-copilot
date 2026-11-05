@@ -11,11 +11,12 @@ import os
 import time
 
 import anthropic
+from anthropic import AnthropicFoundry
 
 from auth import ROLE_NAMES, User
 from query import audit, _log_dir, redact_text, run_query
 
-# 依 run_eval.py 的模型比較：haiku 與 sonnet 正確率相同、越權皆 0，haiku 成本約 1/14 → 預設 haiku
+# 依 eval/ 的 15 題比較（單次執行）：haiku 與 sonnet 皆 15/15、越權 0，haiku 成本約 1/15 → 預設 haiku
 MODEL = os.environ.get("CLAUDE_MODEL", "claude-haiku-5-5")
 EFFORT = os.environ.get("HRC_EFFORT", "medium")
 MAX_TURNS = 6
@@ -92,8 +93,10 @@ TOOL = {
 }
 
 
-def _client() -> anthropic.Anthropic:
-    return anthropic.Anthropic()  # 讀環境變數 ANTHROPIC_API_KEY
+def _client() -> anthropic.Anthropic | AnthropicFoundry:
+    if os.environ.get("ANTHROPIC_FOUNDRY_RESOURCE"):  # 選配：Claude on Microsoft Foundry（另需 ANTHROPIC_FOUNDRY_API_KEY）
+        return AnthropicFoundry()
+    return anthropic.Anthropic()  # 預設：讀環境變數 ANTHROPIC_API_KEY
 
 
 class Conversation:
@@ -117,9 +120,12 @@ class Conversation:
         answer, status = "（系統未能在步數上限內完成回答）", "max_turns"
         try:
             for _ in range(MAX_TURNS):
-                r = self.client.messages.create(
-                    model=self.model, max_tokens=8000, system=self.system, tools=[TOOL],
-                    messages=self.messages, output_config={"effort": EFFORT})
+                try:
+                    r = self.client.messages.create(
+                        model=self.model, max_tokens=8000, system=self.system, tools=[TOOL],
+                        messages=self.messages, output_config={"effort": EFFORT})
+                except TypeError as e:  # SDK 找不到任何憑證時拋 TypeError（不是 APIError）
+                    raise anthropic.AnthropicError("missing credentials") from e
                 usage["llm_calls"] += 1
                 u = r.usage
                 usage["input"] += u.input_tokens
@@ -153,9 +159,11 @@ class Conversation:
                 self.messages.append({"role": "user", "content": results})
             else:
                 del self.messages[start:]
-        except anthropic.APIError as e:  # 不能捏造結果，也不能留下不完整的對話
+        except anthropic.AnthropicError as e:  # 不能捏造結果，也不能留下不完整的對話（APIError 是其子類）
             del self.messages[start:]
             answer = "（系統暫時無法回答：模型服務錯誤，請稍後再試。系統沒有提供任何推測結果。）"
+            if isinstance(e.__cause__, TypeError):
+                answer = "（系統暫時無法回答：尚未設定模型 API 金鑰，請管理者設定 ANTHROPIC_API_KEY 後再試。系統沒有提供任何推測結果。）"
             status = f"llm_error:{type(e).__name__}"
         usage["seconds"] = round(time.time() - t0, 2)
         p = PRICE.get(self.model, PRICE["claude-sonnet-5-5"])
