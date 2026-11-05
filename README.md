@@ -11,7 +11,7 @@ A **local proof-of-concept** for role-aware natural-language analytics. Built wi
 
 ## Demo
 
-A 3-minute walkthrough (role-scoped answers, backend refusals, HRBP review queue, audit log) is in [`demo/hr_copilot_demo.webm`](demo/hr_copilot_demo.webm). It was recorded against the bundled synthetic data with `claude-haiku-5-5`.
+A 3-minute walkthrough (role-scoped answers, backend refusals, HRBP review queue, audit log) is in [`demo/hr_copilot_demo.mp4`](demo/hr_copilot_demo.mp4). It was recorded against the bundled synthetic data with `claude-haiku-5-5`.
 
 ## Data provenance and limitations
 
