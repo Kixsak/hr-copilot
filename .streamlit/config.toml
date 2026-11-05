@@ -1,0 +1,6 @@
+[server]
+# 只綁定本機，不對區網／外部開放
+address = "localhost"
+
+[browser]
+gatherUsageStats = false

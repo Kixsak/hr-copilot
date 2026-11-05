@@ -1,0 +1,18 @@
+services:
+  hrc:
+    build: .
+    image: hr-copilot:latest
+    ports:
+      - "127.0.0.1:${HRC_PORT:-8501}:8501"   # 只對本機開放；埠號衝突時設定 HRC_PORT
+    environment:
+      # 以下從主機 shell 傳入，不寫進檔案或映像
+      - ANTHROPIC_API_KEY
+      - HRC_BOOTSTRAP_PASSWORD
+      - CLAUDE_MODEL=${CLAUDE_MODEL:-claude-haiku-5-5}
+    volumes:
+      - ${HRC_HOST_DATA_DIR:-./data}:/data:ro   # 原始 CSV（唯讀，不進映像）
+      - hrc_state:/state                        # 清理後資料、待確認審核、帳號、稽核紀錄（重啟保留）
+    restart: unless-stopped
+
+volumes:
+  hrc_state:

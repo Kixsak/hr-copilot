@@ -1,0 +1,24 @@
+# Secrets and local runtime state
+.env
+.env.*
+!.env.example
+users.json
+users.tmp
+work/
+logs/
+logs_archive/
+state/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.log
+*.zip
+# Generated evaluation outputs
+eval/results_*.json
+# Personal editor settings
+.vscode/
+.idea/
+
+.git/
+tests/
+demo/

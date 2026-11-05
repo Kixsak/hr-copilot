@@ -1,0 +1,61 @@
+﻿EmployeeID,EmpStatus,Level1,Level2,Level3,Level4,Level5,Level6,Level7,BirthDate,EduLevel,EduSchool,Seniority,Gender,JobGrade,IsManager,Function,DL_IDL,WorkLocation,PerfRating,TermDate,TermType,TermReason
+DEMO001853,Inactive,Group,BG-2,BU-04,BU-04 財務處,BU-04 財務一部,BU-04 財務一部 第2課,,1994-07-03,碩士,Demo College,4.25,M,G09,N,財務,IDL,中國-蘇州,B,2026-02-11,非自願,組織調整
+DEMO001854,Inactive,Group,BG-2,BU-05,BU-05 研發處,BU-05 研發一部,BU-05 研發一部 第2課,,1980-01-05,博士,Demo College,2.62,M,G09,N,RD,IDL,泰國-曼谷,C,2026-02-17,自願,家庭因素
+DEMO001855,Inactive,Group,BG-2,BU-05,BU-05 製造處,BU-05 製造二部,BU-05 製造二部 第1課,,1987-03-29,學士,Demo Institute of Technology,6.22,F,G10,N,製造,DL,泰國-曼谷,B,2026-02-26,非自願,績效不佳
+DEMO001856,Inactive,Group,BG-2,BU-05,BU-05 製造處,BU-05 製造一部,BU-05 製造一部 第2課,,1994-05-20,學士,Demo University B,4.95,M,G11,N,製造,DL,泰國-曼谷,B,2026-02-18,非自願,組織調整
+DEMO001857,Inactive,Group,BG-1,BU-01,BU-01 採購處,BU-01 採購二部,BU-01 採購二部 第2課,,1990-09-18,學士,Demo College,5.40,F,G11,N,採購,IDL,台灣-台北,D,2026-02-06,自願,薪資福利
+DEMO001858,Inactive,Group,BG-1,BU-02,BU-02 財務處,BU-02 財務二部,BU-02 財務二部 第1課,,2004-02-29,學士,Demo University A,0.00,M,G10,N,財務,IDL,台灣-桃園,,2026-02-19,自願,職涯發展
+DEMO001859,Inactive,Group,BG-3,BU-08,BU-08 採購處,BU-08 採購二部,BU-08 採購二部 第2課,,1982-03-09,碩士,Demo College,17.40,M,G11,N,採購,IDL,墨西哥-蒂華納,B,2026-02-16,自願,家庭因素
+DEMO001860,Inactive,Group,BG-3,BU-08,BU-08 業務處,BU-08 業務二部,BU-08 業務二部 第1課,,1990-07-20,專科,Demo Institute of Technology,2.65,M,G09,N,Sales,IDL,墨西哥-蒂華納,B,2026-02-22,自願,家庭因素
+DEMO001861,Inactive,Group,BG-2,BU-04,BU-04 人資處,BU-04 人資一部,BU-04 人資一部 第1課,,1992-05-30,學士,Demo University B,3.32,M,G11,N,HR,IDL,中國-蘇州,B,2026-02-23,自願,薪資福利
+DEMO001862,Inactive,Group,BG-3,BU-08,BU-08 製造處,BU-08 製造一部,BU-08 製造一部 第1課,,1980-09-28,高中,Demo University A,9.62,F,G10,N,製造,DL,墨西哥-蒂華納,B,2026-02-16,自願,職涯發展
+DEMO001863,Inactive,Group,BG-1,BU-02,BU-02 製造處,BU-02 製造一部,BU-02 製造一部 第2課,,1990-08-15,碩士,Demo University A,8.95,M,G11,N,製造,DL,台灣-桃園,B,2026-02-04,自願,家庭因素
+DEMO001864,Inactive,Group,BG-3,BU-07,BU-07 財務處,BU-07 財務一部,BU-07 財務一部 第1課,,1991-10-04,學士,Demo Institute of Technology,4.24,M,G11,N,財務,IDL,台灣-高雄,B,2026-02-25,退休,屆齡退休
+DEMO001865,Inactive,Group,BG-1,BU-03,BU-03 業務處,BU-03 業務一部,BU-03 業務一部 第1課,,2004-02-29,碩士,Demo University B,0.00,M,G10,N,Sales,IDL,中國-東莞,,2026-02-20,自願,職涯發展
+DEMO001866,Inactive,Group,BG-2,BU-06,BU-06 品保處,BU-06 品保二部,BU-06 品保二部 第2課,,1996-01-08,學士,Demo Institute of Technology,3.57,F,G09,N,品保,IDL,泰國-曼谷,B,2026-02-12,自願,職涯發展
+DEMO001867,Inactive,Group,BG-1,BU-01,BU-01 採購處,BU-01 採購一部,BU-01 採購一部 第1課,,1985-11-23,博士,Demo University A,3.22,M,G09,N,採購,IDL,台灣-台北,C,2026-02-15,自願,薪資福利
+DEMO001868,Inactive,Group,BG-2,BU-05,BU-05 人資處,BU-05 人資二部,BU-05 人資二部 第2課,,1998-03-04,學士,Demo Institute of Technology,0.53,F,G10,N,HR,IDL,泰國-曼谷,,2026-02-09,自願,職涯發展
+DEMO001869,Inactive,Group,BG-3,BU-07,BU-07 研發處,BU-07 研發一部,BU-07 研發一部 第2課,,1979-07-08,博士,Demo University A,12.12,M,G11,N,RD,IDL,台灣-高雄,A,2026-02-07,自願,家庭因素
+DEMO001870,Inactive,Group,BG-2,BU-05,BU-05 製造處,BU-05 製造二部,BU-05 製造二部 第1課,,1988-12-15,學士,Demo College,1.29,M,G10,N,製造,DL,泰國-曼谷,B,2026-02-05,自願,家庭因素
+DEMO001871,Inactive,Group,BG-2,BU-06,BU-06 業務處,BU-06 業務一部,BU-06 業務一部 第1課,,1974-01-26,學士,Demo Institute of Technology,21.39,M,G11,N,Sales,IDL,越南-北寧,B,2026-02-26,退休,屆齡退休
+DEMO001872,Inactive,Group,BG-2,BU-04,BU-04 業務處,BU-04 業務二部,BU-04 業務二部 第1課,,1970-12-19,碩士,Demo University B,11.33,M,G11,N,Sales,IDL,泰國-曼谷,B,2026-02-06,退休,屆齡退休
+DEMO001873,Inactive,Group,BG-2,BU-04,BU-04 人資處,BU-04 人資一部,BU-04 人資一部 第2課,,1974-12-06,學士,Demo University B,12.70,M,G10,N,HR,IDL,中國-蘇州,A,2026-02-15,非自願,組織調整
+DEMO001874,Inactive,Group,BG-1,BU-02,BU-02 製造處,BU-02 製造一部,BU-02 製造一部 第1課,,1986-05-03,學士,Demo University B,5.49,M,G11,N,製造,IDL,台灣-桃園,B,2026-02-12,自願,薪資福利
+DEMO001875,Inactive,Group,BG-2,BU-06,BU-06 業務處,BU-06 業務一部,BU-06 業務一部 第1課,,1985-02-28,學士,Demo Institute of Technology,9.72,F,G09,N,Sales,IDL,越南-北寧,A,2026-02-02,非自願,組織調整
+DEMO001876,Inactive,Group,BG-2,BU-06,BU-06 製造處,BU-06 製造二部,BU-06 製造二部 第2課,,1986-03-02,學士,Demo University B,8.43,M,G09,N,製造,IDL,越南-北寧,B,2026-02-08,退休,屆齡退休
+DEMO001877,Inactive,Group,BG-1,BU-03,BU-03 財務處,BU-03 財務一部,BU-03 財務一部 第2課,,1997-06-11,學士,Demo Institute of Technology,0.38,F,G10,N,財務,IDL,中國-東莞,,2026-02-21,自願,職涯發展
+DEMO001878,Inactive,Group,BG-3,BU-07,BU-07 採購處,BU-07 採購二部,BU-07 採購二部 第2課,,1994-07-10,學士,Demo University B,1.00,M,G11,N,採購,IDL,中國-蘇州,B,2026-02-02,自願,家庭因素
+DEMO001879,Inactive,Group,BG-2,BU-04,BU-04 業務處,BU-04 業務二部,BU-04 業務二部 第2課,,1975-03-08,學士,Demo Institute of Technology,5.99,F,G10,N,Sales,IDL,中國-蘇州,C,2026-02-10,自願,職涯發展
+DEMO001880,Inactive,Group,BG-3,BU-08,BU-08 財務處,BU-08 財務二部,BU-08 財務二部 第1課,,1990-07-25,專科,Demo University A,1.41,F,G09,N,財務,IDL,墨西哥-蒂華納,B,2026-02-24,自願,家庭因素
+DEMO001881,Inactive,Group,BG-2,BU-05,BU-05 業務處,BU-05 業務一部,BU-05 業務一部 第2課,,1989-12-04,學士,Demo Institute of Technology,3.09,M,G11,N,Sales,IDL,泰國-曼谷,A,2026-02-19,自願,薪資福利
+DEMO001882,Inactive,Group,BG-1,BU-02,BU-02 採購處,BU-02 採購二部,BU-02 採購二部 第1課,,1974-09-02,學士,Demo College,11.62,M,G11,N,採購,IDL,台灣-桃園,A,2026-02-12,自願,職涯發展
+DEMO001883,Inactive,Group,BG-1,BU-03,BU-03 採購處,BU-03 採購二部,BU-03 採購二部 第1課,,1994-08-10,學士,Demo College,1.69,M,G10,N,採購,IDL,台灣-高雄,B,2026-02-20,非自願,組織調整
+DEMO001884,Inactive,Group,BG-1,BU-01,BU-01 品保處,BU-01 品保一部,BU-01 品保一部 第2課,,1982-05-22,學士,Demo University B,13.53,F,G11,N,品保,IDL,台灣-台北,C,2026-02-16,自願,家庭因素
+DEMO001885,Inactive,Group,BG-2,BU-06,BU-06 研發處,BU-06 研發二部,BU-06 研發二部 第1課,,1997-04-07,專科,Demo University B,1.78,M,G11,N,RD,IDL,越南-北寧,B,2026-02-07,自願,薪資福利
+DEMO001886,Inactive,Group,BG-1,BU-03,BU-03 採購處,BU-03 採購二部,BU-03 採購二部 第2課,,1992-04-12,高中,Demo University B,4.61,M,G11,N,採購,IDL,中國-東莞,A,2026-02-05,退休,屆齡退休
+DEMO001887,Inactive,Group,BG-2,BU-05,BU-05 業務處,BU-05 業務一部,BU-05 業務一部 第1課,,2000-01-09,學士,Demo Institute of Technology,1.04,M,G10,N,Sales,IDL,泰國-曼谷,B,2026-02-22,自願,職涯發展
+DEMO001888,Inactive,Group,BG-1,BU-01,BU-01 研發處,BU-01 研發一部,BU-01 研發一部 第1課,,1997-08-28,學士,Demo College,0.42,M,G11,N,RD,IDL,台灣-台北,,2026-02-27,自願,職涯發展
+DEMO001889,Inactive,Group,BG-2,BU-06,BU-06 品保處,BU-06 品保一部,BU-06 品保一部 第1課,,2001-08-15,學士,Demo University A,0.44,M,G11,N,品保,IDL,越南-北寧,,2026-02-14,自願,職涯發展
+DEMO001890,Inactive,Group,BG-2,BU-06,BU-06 業務處,BU-06 業務一部,BU-06 業務一部 第1課,,1992-04-01,碩士,Demo University A,1.15,F,G10,N,Sales,IDL,墨西哥-蒂華納,B,2026-02-01,自願,薪資福利
+DEMO001891,Inactive,Group,BG-2,BU-06,BU-06 品保處,BU-06 品保二部,BU-06 品保二部 第1課,,1978-08-21,高中,Demo University B,4.61,M,G10,N,品保,IDL,越南-北寧,C,2026-02-15,退休,屆齡退休
+DEMO001892,Inactive,Group,BG-1,BU-03,BU-03 製造處,BU-03 製造一部,BU-03 製造一部 第1課,,1987-12-12,學士,Demo Institute of Technology,13.63,F,G09,N,製造,IDL,中國-東莞,C,2026-02-04,自願,家庭因素
+DEMO001893,Inactive,Group,BG-1,BU-01,BU-01 研發處,BU-01 研發一部,BU-01 研發一部 第2課,,2003-12-09,高中,Demo Institute of Technology,0.04,M,G09,N,RD,IDL,台灣-台北,,2026-02-11,非自願,績效不佳
+DEMO001894,Inactive,Group,BG-1,BU-01,BU-01 製造處,BU-01 製造一部,BU-01 製造一部 第1課,,2004-02-29,專科,Demo University A,0.00,M,G10,N,製造,DL,台灣-台北,,2026-02-24,自願,職涯發展
+DEMO001895,Inactive,Group,BG-2,BU-05,BU-05 業務處,BU-05 業務二部,BU-05 業務二部 第2課,,1980-05-31,高中,Demo University B,6.54,M,G10,N,Sales,IDL,泰國-曼谷,B,2026-02-08,退休,屆齡退休
+DEMO001896,Inactive,Group,BG-1,BU-01,BU-01 品保處,BU-01 品保一部,BU-01 品保一部 第2課,,1984-05-05,專科,Demo University B,7.18,M,G09,N,品保,IDL,台灣-台北,B,2026-02-11,自願,家庭因素
+DEMO001897,Inactive,Group,BG-1,BU-03,BU-03 採購處,BU-03 採購一部,BU-03 採購一部 第1課,,1986-06-26,學士,Demo University A,6.59,M,G11,N,採購,IDL,中國-東莞,B,2026-02-17,自願,職涯發展
+DEMO001898,Inactive,Group,BG-2,BU-06,BU-06 研發處,BU-06 研發二部,BU-06 研發二部 第1課,,1980-10-24,碩士,Demo College,0.36,F,G11,N,RD,IDL,越南-北寧,,2026-02-01,自願,職涯發展
+DEMO001899,Inactive,Group,BG-1,BU-03,BU-03 財務處,BU-03 財務一部,BU-03 財務一部 第1課,,1997-11-14,碩士,Demo University A,3.84,M,G10,N,財務,IDL,中國-東莞,A,2026-02-04,退休,屆齡退休
+DEMO001900,Inactive,Group,BG-2,BU-04,BU-04 業務處,BU-04 業務二部,BU-04 業務二部 第1課,,1984-05-11,學士,Demo Institute of Technology,8.90,M,G10,N,Sales,IDL,中國-蘇州,D,2026-02-23,自願,家庭因素
+DEMO001901,Inactive,Group,BG-1,BU-03,BU-03 研發處,BU-03 研發一部,BU-03 研發一部 第2課,,1987-06-18,學士,Demo Institute of Technology,6.45,M,G09,N,RD,IDL,中國-東莞,A,2026-02-05,非自願,組織調整
+DEMO001902,Inactive,Group,BG-3,BU-08,BU-08 製造處,BU-08 製造一部,BU-08 製造一部 第2課,,1988-10-26,學士,Demo University A,9.59,F,G09,N,製造,DL,墨西哥-蒂華納,D,2026-02-18,自願,職涯發展
+DEMO001903,Inactive,Group,BG-2,BU-06,BU-06 研發處,BU-06 研發二部,BU-06 研發二部 第2課,,1992-07-28,高中,Demo College,0.99,F,G09,N,RD,IDL,越南-北寧,,2026-02-04,自願,職涯發展
+DEMO001904,Inactive,Group,BG-2,BU-06,BU-06 業務處,BU-06 業務一部,BU-06 業務一部 第2課,,1984-01-16,學士,Demo Institute of Technology,1.63,M,G11,N,Sales,IDL,越南-北寧,B,2026-02-15,非自願,組織調整
+DEMO001905,Inactive,Group,BG-3,BU-07,BU-07 財務處,BU-07 財務一部,BU-07 財務一部 第2課,,1998-02-21,學士,Demo University A,0.83,M,G10,N,財務,IDL,台灣-高雄,,2026-02-24,自願,家庭因素
+DEMO001906,Inactive,Group,BG-3,BU-07,BU-07 研發處,BU-07 研發一部,BU-07 研發一部 第2課,,1993-08-11,學士,Demo University A,7.51,F,G10,N,RD,IDL,台灣-高雄,A,2026-02-18,非自願,績效不佳
+DEMO001907,Inactive,Group,BG-1,BU-01,BU-01 研發處,BU-01 研發一部,BU-01 研發一部 第1課,,1991-03-21,碩士,Demo College,4.17,M,G10,N,RD,IDL,中國-蘇州,A,2026-02-09,自願,家庭因素
+DEMO001908,Inactive,Group,BG-1,BU-01,BU-01 採購處,BU-01 採購一部,BU-01 採購一部 第2課,,1996-09-09,學士,Demo Institute of Technology,1.11,M,G09,N,採購,IDL,台灣-台北,B,2026-02-04,自願,職涯發展
+DEMO001909,Inactive,Group,BG-3,BU-07,BU-07 研發處,BU-07 研發二部,BU-07 研發二部 第1課,,1993-09-25,學士,Demo University B,3.35,M,G11,N,RD,IDL,台灣-高雄,B,2026-02-12,退休,屆齡退休
+DEMO001910,Inactive,Group,BG-2,BU-05,BU-05 業務處,BU-05 業務一部,BU-05 業務一部 第2課,,1986-02-07,學士,Demo University B,2.92,M,G11,N,Sales,IDL,泰國-曼谷,A,2026-02-09,自願,職涯發展
+DEMO001911,Inactive,Group,BG-3,BU-07,BU-07 業務處,BU-07 業務一部,BU-07 業務一部 第2課,,1998-07-06,碩士,Demo College,0.79,M,G10,N,Sales,IDL,台灣-高雄,,2026-02-02,非自願,績效不佳
+DEMO001912,Inactive,Group,BG-1,BU-02,BU-02 業務處,BU-02 業務二部,BU-02 業務二部 第2課,,1981-04-21,學士,Demo University B,3.35,M,G11,N,Sales,IDL,台灣-桃園,B,2026-02-17,非自願,績效不佳
