@@ -97,4 +97,13 @@ This section is a **design**, not an implementation: none of the integrations be
 
 ## Security and scope
 
-This demonstration has not undergone an external penetration test, full threat modelling, or production hardening. It should be used on localhost only. Check repository history for secrets before publishing.
+This demonstration has not undergone an external penetration test, full threat modelling, or production hardening. It should be used on localhost only.
+
+### Known limitations
+
+These are weaknesses I know about and have not fixed:
+
+- **Concurrent writes can lose a decision.** `review.decide()` and the account store in `auth.py` read a JSON file, modify it and replace it atomically (the file is never half-written), but there is no lock. If two HRBPs decide at the same moment, the later write overwrites the earlier one. A file lock or a database would fix it.
+- **Query differencing is only partly controlled.** Sensitive fields (age, performance, termination reason) cannot be combined with the section and team levels (`Level6`, `Level7`), and cells under 5 people are hidden. At larger levels there is no control on overlapping queries, so two queries whose filters differ by a handful of people could still reveal an individual's value. A query-set-size or overlap check would be the next step.
+- **Long lists depend on the model.** A list is written out by the model from the tool result. The tool result is complete, but the model can shorten a long list, and a reply cut off at the 8,000-token limit is flagged as truncated. This was not measured on the demo data. Rendering lists directly from the tool result in code would remove the dependency.
+- **Local accounts only.** Passwords are hashed and failed logins lock the account, but there is no SSO, MFA or password rotation.
